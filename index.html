@@ -11,55 +11,8 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery.js"></script>
-    <style>
-        
-        body {
-            background-image: url("assets/images/background3.gif");
-        }
-        #random {
-            background-color: lightgray;
-            padding: 25px;
-            font-weight: bold;
-        }
-        #winsLosses {
-            background-color: darkorange;
-            padding: 25px;
-            font-weight: bold;
-        }
-        #totalScore {
-            background-color: cyan;
-            padding: 25px;
-            font-weight: bold;
-            color: black;
-            margin-bottom: 15px;
-        }
-        #info   {
-            background-color: bisque;
-            padding: 25px;
-            font-weight: bold;
-            color: chocolate;
-        }
-        ul    {
-            font-size: 20px;
-            background-color: inherit;
-        }
-        .numberBackground  {
-            font-size: 30px;
-            background-color: inherit;
-            color: cyan;
-        }
-        .last   {
-            color: black;
-        }
-        .crystal    {
-            margin-top: 25px;
-        }
-        .crystals   {
-            margin-left: -14px;
-            margin-right: -14px;
-        }
+    <link rel="stylesheet" href="assets/css/style.css">
 
-    </style>
 
 </head>
 <body>
@@ -154,138 +107,18 @@
     <ul class="nav nav-pills">
         <li> Your total score is:  <span id="score" class="badge numberBackground last">0</span></li>
 
+        <button onclick="restarted()" class="primary pull-right reset">Reset Game</button>
+
     </ul>
     </div>
 
 </div>
 
-
-<script>
-    var img1 = Math.floor(Math.random()*12+1);
-   var img2 = Math.floor(Math.random()*12+1);
-   var img3 = Math.floor(Math.random()*12+1);
-   var img4 = Math.floor(Math.random()*12+1);
-    var winningNumber = " ";
-    var score = 0;
-    var losses = 0;
-    var wins = 0;
-    //var crystalNumbers = Math.floor(Math.random()*12 +1);
-    var randomNumber = Math.floor(Math.random()*120 + 24);
-   //var img1 = crystalNumbers;
-   //var sumTotal =0;
-    winningNumber =  Math.floor(Math.random()*120 + 24);
-   $('#winningNumber').text(winningNumber);
-
-   //for (var i = 0; i < crystalNumbers; i++) {
-
-       $("#score").text(score);
-  // }
-
-    function restart () {
-        img1 = Math.floor(Math.random()*12+1);
-        img2 = Math.floor(Math.random()*12+1);
-        img3 = Math.floor(Math.random()*12+1);
-        img4 = Math.floor(Math.random()*12+1);
-        winningNumber =  Math.floor(Math.random()*120 + 24);
-        $('#winningNumber').text(winningNumber);
-        score = 0;
-        $("#score").text(score);
-
-    }
-   // console.log(randomNumber);
-   // $(document).on("click", function() {
-      //  randomNumber.text(winningNumber);
-        // $('winningNumber').text(winningNumber);
-
-
-       // $("#img1").text(crystalNumbers);
-
-
-
-
-
-        $("#img1").click( function (event) {
-            event.preventDefault();
-            score+= img1;
-           // $("img1").text();
-            $("#score").text(score);
-            if(winningNumber === score) {
-                wins ++;
-                $("#wins").text(wins);
-             //   score = 0;
-                alert("You Won");
-                restart()
-            }   else if(score > winningNumber){
-                losses ++;
-                $("#losses").text(losses);
-              //  score = 0;
-                alert("sorry you lost");
-                restart()
-            }
-            //img1 = crystalNumbers;
-
-            //console.log(img1);
-
-
-        } );
-        $("#img2").on("click", function () {
-            event.preventDefault();
-            score+= img2;
-            $("#score").text(score);
-            if(winningNumber === score) {
-                wins ++;
-                $("#wins").text(wins);
-                alert("You Won");
-                restart()
-
-            }   else if(score > winningNumber){
-                losses ++;
-                $("#losses").text(losses);
-                alert("sorry you lost");
-                restart()
-            }
-
-        });
-        $("#img3").on("click", function () {
-            event.preventDefault();
-            score+= img3;
-            $("#score").text(score);
-            if(winningNumber === score) {
-                wins ++;
-                $("#wins").text(wins);
-                alert("You Won");
-                restart()
-            }   else if(score > winningNumber){
-                losses ++;
-                $("#losses").text(losses);
-                alert("sorry you lost");
-                restart()
-            }
-
-        });
-        $("#img4").on("click", function () {
-            event.preventDefault();
-            score+= img4;
-            $("#score").text(score);
-            if(winningNumber === score) {
-                wins ++;
-                $("#wins").text(wins);
-                alert("You Won");
-                restart()
-            }   else if(score > winningNumber){
-                losses ++;
-                $("#losses").text(losses);
-                alert("sorry you lost");
-                restart()
-            }
-
-        });
-
-    //})
-</script>
     <script src="https://code.jquery.com/jquery.js"></script>
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script type="text/javascript" src="assets/javascript/game.js"></script>
+
 </body>
 </html>
