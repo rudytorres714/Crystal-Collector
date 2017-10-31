@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Crystal Game</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <style>
+        
+        body {
+            background-image: url("assets/images/background3.gif");
+        }
+        #random {
+            background-color: lightgray;
+            padding: 25px;
+            font-weight: bold;
+        }
+        #winsLosses {
+            background-color: darkorange;
+            padding: 25px;
+            font-weight: bold;
+        }
+        #totalScore {
+            background-color: cyan;
+            padding: 25px;
+            font-weight: bold;
+            color: black;
+            margin-bottom: 15px;
+        }
+        #info   {
+            background-color: bisque;
+            padding: 25px;
+            font-weight: bold;
+            color: chocolate;
+        }
+        ul    {
+            font-size: 20px;
+            background-color: inherit;
+        }
+        .numberBackground  {
+            font-size: 30px;
+            background-color: inherit;
+            color: cyan;
+        }
+        .last   {
+            color: black;
+        }
+        .crystal    {
+            margin-top: 25px;
+        }
+        .crystals   {
+            margin-left: -14px;
+            margin-right: -14px;
+        }
+
+    </style>
+
+</head>
+<body>
+<div class="container">
+<div style="color: white; background-color: orangered" class="jumbotron div-head crystal">
+    <h1>Crystal Collector</h1>
+
+</div>
+    <div id="info">
+        <br>
+
+
+        <p>You will be given a random number at the start of the game.</p>
+        <br>
+        <p>There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score.</p>
+        <br>
+        <p>You win the game by matching your total score to the random number, you lose the game if your total score goes above the random number.</p>
+        <br>
+        <p>The value of each crystal is hidden from you until you click on it.</p>
+        <br>
+        <p>Each time when the game starts, the game will change the values of each crystal.</p>
+        <br>
+
+    </div>
+
+    <br>
+    <br>
+<div id="random">
+    <ul class="nav nav-pills">
+        <li> Random Number is:   <span id="winningNumber" class="badge numberBackground"></span></li>
+        <br>
+
+    </ul>
+
+</div>
+
+    <br>
+    <br>
+
+    <div id="winsLosses">
+    <ul class="nav nav-pills">
+        <li> Wins:  <span id="wins" class="badge numberBackground">0</span></li>
+        <br>
+        <br>
+
+        <li> Losses:  <span id="losses" class="badge numberBackground">0</span></li>
+
+    </ul>
+
+    <br>
+
+    </div>
+    <br>
+    <br>
+
+    <div class="container crystals">
+
+<div class="row">
+    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+        <a href="#" class="thumbnail" id="img1">
+            <img src="assets/images/crystal10.jpg" alt="...">
+        </a>
+    </div>
+
+    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+        <a href="#" class="thumbnail" id="img2">
+            <img src="assets/images/crystal9.jpg" alt="...">
+        </a>
+    </div>
+
+    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+        <a href="#" class="thumbnail" id="img3">
+            <img src="assets/images/crystal8.jpg" alt="...">
+        </a>
+    </div>
+
+
+    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+        <a href="#" class="thumbnail" id="img4">
+            <img src="assets/images/crystal7.jpg" alt="...">
+        </a>
+    </div>
+
+
+
+</div>
+    </div>
+    <br>
+    <br>
+
+    <div id="totalScore">
+    <ul class="nav nav-pills">
+        <li> Your total score is:  <span id="score" class="badge numberBackground last">0</span></li>
+
+    </ul>
+    </div>
+
+</div>
+
+
+<script>
+    var img1 = Math.floor(Math.random()*12+1);
+   var img2 = Math.floor(Math.random()*12+1);
+   var img3 = Math.floor(Math.random()*12+1);
+   var img4 = Math.floor(Math.random()*12+1);
+    var winningNumber = " ";
+    var score = 0;
+    var losses = 0;
+    var wins = 0;
+    //var crystalNumbers = Math.floor(Math.random()*12 +1);
+    var randomNumber = Math.floor(Math.random()*120 + 24);
+   //var img1 = crystalNumbers;
+   //var sumTotal =0;
+    winningNumber =  Math.floor(Math.random()*120 + 24);
+   $('#winningNumber').text(winningNumber);
+
+   //for (var i = 0; i < crystalNumbers; i++) {
+
+       $("#score").text(score);
+  // }
+
+    function restart () {
+        img1 = Math.floor(Math.random()*12+1);
+        img2 = Math.floor(Math.random()*12+1);
+        img3 = Math.floor(Math.random()*12+1);
+        img4 = Math.floor(Math.random()*12+1);
+        winningNumber =  Math.floor(Math.random()*120 + 24);
+        $('#winningNumber').text(winningNumber);
+        score = 0;
+        $("#score").text(score);
+
+    }
+   // console.log(randomNumber);
+   // $(document).on("click", function() {
+      //  randomNumber.text(winningNumber);
+        // $('winningNumber').text(winningNumber);
+
+
+       // $("#img1").text(crystalNumbers);
+
+
+
+
+
+        $("#img1").click( function (event) {
+            event.preventDefault();
+            score+= img1;
+           // $("img1").text();
+            $("#score").text(score);
+            if(winningNumber === score) {
+                wins ++;
+                $("#wins").text(wins);
+             //   score = 0;
+                alert("You Won");
+                restart()
+            }   else if(score > winningNumber){
+                losses ++;
+                $("#losses").text(losses);
+              //  score = 0;
+                alert("sorry you lost");
+                restart()
+            }
+            //img1 = crystalNumbers;
+
+            //console.log(img1);
+
+
+        } );
+        $("#img2").on("click", function () {
+            event.preventDefault();
+            score+= img2;
+            $("#score").text(score);
+            if(winningNumber === score) {
+                wins ++;
+                $("#wins").text(wins);
+                alert("You Won");
+                restart()
+
+            }   else if(score > winningNumber){
+                losses ++;
+                $("#losses").text(losses);
+                alert("sorry you lost");
+                restart()
+            }
+
+        });
+        $("#img3").on("click", function () {
+            event.preventDefault();
+            score+= img3;
+            $("#score").text(score);
+            if(winningNumber === score) {
+                wins ++;
+                $("#wins").text(wins);
+                alert("You Won");
+                restart()
+            }   else if(score > winningNumber){
+                losses ++;
+                $("#losses").text(losses);
+                alert("sorry you lost");
+                restart()
+            }
+
+        });
+        $("#img4").on("click", function () {
+            event.preventDefault();
+            score+= img4;
+            $("#score").text(score);
+            if(winningNumber === score) {
+                wins ++;
+                $("#wins").text(wins);
+                alert("You Won");
+                restart()
+            }   else if(score > winningNumber){
+                losses ++;
+                $("#losses").text(losses);
+                alert("sorry you lost");
+                restart()
+            }
+
+        });
+
+    //})
+</script>
+    <script src="https://code.jquery.com/jquery.js"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>
