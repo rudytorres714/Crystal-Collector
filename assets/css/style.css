@@ -1,17 +1,19 @@
-
 body {
-    background-image: url("../images/background3.gif");
+    background-image: url("../images/background.gif");
 }
+
 #random {
     background-color: lightgray;
     padding: 25px;
     font-weight: bold;
 }
+
 #winsLosses {
     background-color: darkorange;
     padding: 25px;
     font-weight: bold;
 }
+
 #totalScore {
     background-color: cyan;
     padding: 25px;
@@ -19,28 +21,36 @@ body {
     color: black;
     margin-bottom: 15px;
 }
+
 #info   {
     background-color: bisque;
     padding: 25px;
     font-weight: bold;
     color: chocolate;
 }
+
 ul    {
     font-size: 18px;
     background-color: inherit;
 }
+
 .numberBackground  {
     font-size: 30px;
     background-color: inherit;
     color: cyan;
 }
+
 .last   {
     color: black;
 }
-.crystal    {
-    margin-top: 25px;
-}
+
 .crystals   {
     margin-left: -14px;
     margin-right: -14px;
+}
+
+.crystalHead    {
+    margin-top: 25px;
+    color: white;
+    background-color: orangered;
 }
